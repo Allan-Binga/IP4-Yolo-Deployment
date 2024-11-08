@@ -10,3 +10,4 @@ vault.yml
 
 .env
 node_modules/
+Vagrantfile
