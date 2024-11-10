@@ -27,5 +27,8 @@ spec:
             requests:
               memory: "128Mi"
               cpu: "250m"
+          # env:
+          #   - name: MONGODB_URI
+          #     value: "mongodb+srv://allanbinga73:gMKvMv9sIQb53gay@yolocluster.o0ns0.mongodb.net/?retryWrites=true&w=majority&appName=YoloCluster"
 
   
