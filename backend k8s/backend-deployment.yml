@@ -18,5 +18,5 @@ spec:
         ports:
         - containerPort: 5000
         env:
-        - name: MONGO_URI
-          value: "mongodb://mongo-service:27017/your-db-name"
+        - name: mongo-uri-secret
+          value: username
