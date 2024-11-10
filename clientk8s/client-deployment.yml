@@ -17,3 +17,10 @@ spec:
         image: allanbinga/yolo-backend:v1.0.0
         ports:
         - containerPort: 3000
+        resources: 
+          requests: 
+            memory: "256Mi"
+            cpu: "500m" 
+          limits: 
+             memory: "512Mi"
+             cpu: "1"
