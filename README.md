@@ -28,6 +28,32 @@ Backend Deployment: Deploys the backend service and makes it accessible within t
 Frontend Deployment: Deploys the frontend service and exposes it to external traffic.
 MongoDB StatefulSet: Ensures persistent storage for MongoDB using Persistent Volume Claims (PVCs).
 
+Before manifests configuration, ensure the following:
+
+1. Install and Configure Google Cloud SDK:
+
+Make sure you have the Google Cloud SDK installed on your local machine. You can download it from here.
+Authenticate and set the default project:
+```bash
+    gcloud auth login
+    gcloud config set project ip4-yolocluster
+
+```
+
+2. Enable the Kubernetes Engine API:
+```bash
+    gcloud services enable container.googleapis.com
+```
+
+3. Create a cluster. For my case I used the GCP platform to create a cluster named 'yolocluster' as illustrated below:
+
+![Alt text](./images/cluster.png)
+
+- Retrieve the cluster credentials with the region tagged:
+```bash
+gcloud container clusters get-credentials yolo-cluster --zone us-central1
+```
+
 # Step 3: Apply the K8s manifests:
 ```bash
 kubectl apply -f clientk8s/ -f backendk8s/ -f mongoDBk8s/
@@ -49,6 +75,9 @@ kubectl get services
 ```bash
 http://34.30.153.141/
 ```
+# In my case I navigated to the GCP cloud to be able to get the external IP address:
+![Alt text](./images/URL.png)
+
 4. Access yuor application in the browser:
 
 ![Alt text](./images/service.png)
