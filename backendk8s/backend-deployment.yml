@@ -13,20 +13,19 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend
+      - name: backend-container
         image: allanbinga/yolo-backend:v1.0.0
         ports:
         - containerPort: 5000
         env:
-        - name: MONGO_URI
-          valueFrom:
-            secretKeyRef:
-              name: mongo-uri-secret
-              key: username
+            - name: MONGODB_URI
+              value: "mongodb+srv://allanbinga73:gMKvMv9sIQb53gay@yolocluster.o0ns0.mongodb.net/?retryWrites=true&w=majority&appName=YoloCluster"
+
+
         resources:
-          requests:
+          limits:
             memory: "256Mi"
             cpu: "500m"
-          limits:
-            memory: "512Mi"
-            cpu: "1"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
